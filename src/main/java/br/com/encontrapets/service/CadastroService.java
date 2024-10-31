@@ -59,11 +59,12 @@ public class CadastroService {
 		uUsuario.setUserAtualizacao("SYSTEM");
 		uUsuario.setDataAtualizacao(new Date());
 		uUsuario.setDataCadastro(new Date());
-		this.userRepository.save(uUsuario);
+		uUsuario = this.userRepository.save(uUsuario);
 		
 		Pessoa pessoaTarget = new Pessoa();
 		BeanUtils.copyProperties(objectloginDto, pessoaTarget);
 		pessoaTarget.setIdEndereco(eEndereco.getIdEndereco());
+		pessoaTarget.setIdUsuario(uUsuario.getIdUsuario());
 		pessoaTarget.setUserCadastro("SYSTEM");
 		pessoaTarget.setUserAtualizacao("SYSTEM");
 		pessoaTarget.setDataAtualizacao(new Date());

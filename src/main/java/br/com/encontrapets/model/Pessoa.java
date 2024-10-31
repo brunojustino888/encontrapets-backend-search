@@ -29,6 +29,9 @@ public class Pessoa {
 
     @Column(name = "ID_ENDERECO")
     private Long idEndereco;
+    
+    @Column
+    private Long idUsuario;
 
     @Column(name = "DATA_CADASTRO")
     private Date dataCadastro;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.encontrapets.dto.CadastroRequestDto;
 import br.com.encontrapets.service.CadastroService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -18,7 +19,7 @@ public class CadastroController {
     private CadastroService usuarioService;
     
     @PostMapping("/cadastro")
-    public ResponseEntity<CadastroRequestDto> cadastraUser(@RequestBody CadastroRequestDto objectloginDto) {
+    public ResponseEntity<CadastroRequestDto> cadastraUser(@RequestBody @Valid CadastroRequestDto objectloginDto) {
         return this.usuarioService.save(objectloginDto);
     }
     

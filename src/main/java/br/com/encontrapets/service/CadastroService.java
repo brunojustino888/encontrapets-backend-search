@@ -42,7 +42,13 @@ public class CadastroService {
 		}
 		
 		objectloginDto.setSenha(this.passwordEncoder.encode(objectloginDto.getSenha()));
-		 
+		objectloginDto.setBairro(objectloginDto.getBairro().toUpperCase()); 
+		objectloginDto.setCidade(objectloginDto.getCidade().toUpperCase()); 
+		objectloginDto.setEstado(objectloginDto.getEstado().toUpperCase()); 
+		objectloginDto.setLogradouro(objectloginDto.getLogradouro().toUpperCase()); 
+		objectloginDto.setNome(objectloginDto.getNome().toUpperCase()); 
+		objectloginDto.setNumeroComplemento(objectloginDto.getNumeroComplemento().toUpperCase()); 
+		
 		Endereco eEndereco = new Endereco();
 		BeanUtils.copyProperties(objectloginDto, eEndereco);
 		eEndereco.setUserCadastro("SYSTEM");

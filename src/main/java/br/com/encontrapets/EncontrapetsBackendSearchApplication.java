@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EncontrapetsBackendAuthApplication {
+public class EncontrapetsBackendSearchApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EncontrapetsBackendAuthApplication.class, args);
+		SpringApplication.run(EncontrapetsBackendSearchApplication.class, args);
+		
 	}
 
 }

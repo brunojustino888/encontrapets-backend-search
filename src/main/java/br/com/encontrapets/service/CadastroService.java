@@ -49,23 +49,26 @@ public class CadastroService {
 		objectloginDto.setNome(objectloginDto.getNome().toUpperCase()); 
 		objectloginDto.setNumeroComplemento(objectloginDto.getNumeroComplemento().toUpperCase()); 
 		
-		Endereco eEndereco = new Endereco();
-		BeanUtils.copyProperties(objectloginDto, eEndereco);
-		eEndereco.setUserCadastro("SYSTEM");
-		eEndereco.setUserAtualizacao("SYSTEM");
-		eEndereco.setDataAtualizacao(new Date());
-		eEndereco.setDataCadastro(new Date());
-		eEndereco = this.adressRepository.save(eEndereco);
-		
 		Usuario uUsuario = new Usuario();
 		BeanUtils.copyProperties(objectloginDto, uUsuario);
-		uUsuario.setIdPerfil(3);
+		uUsuario.setIdPerfil(2);
+		uUsuario.setFlagBloqueio("N");
+		uUsuario.setFlagExclusao("N");
 		uUsuario.setLogin(objectloginDto.getEmail());
 		uUsuario.setUserCadastro("SYSTEM");
 		uUsuario.setUserAtualizacao("SYSTEM");
 		uUsuario.setDataAtualizacao(new Date());
 		uUsuario.setDataCadastro(new Date());
 		uUsuario = this.userRepository.save(uUsuario);
+		
+		Endereco eEndereco = new Endereco();
+		BeanUtils.copyProperties(objectloginDto, eEndereco);
+		eEndereco.setUserCadastro("SYSTEM");
+		eEndereco.setUserAtualizacao("SYSTEM");
+		eEndereco.setDataAtualizacao(new Date());
+		eEndereco.setDataCadastro(new Date());
+		eEndereco.setIdEnderecoUsuario(uUsuario.getIdUsuario());
+		eEndereco = this.adressRepository.save(eEndereco);
 		
 		Pessoa pessoaTarget = new Pessoa();
 		BeanUtils.copyProperties(objectloginDto, pessoaTarget);

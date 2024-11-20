@@ -19,6 +19,9 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEndereco;
 
+    @Column
+    private Long idEnderecoUsuario;
+    
     @Column(nullable = false)
     private String logradouro;
 

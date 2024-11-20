@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "T_USUARIO")
+@Table(name = "T_USUARIO", schema = "encontrapetsdb")
 public class Usuario {
 	
     @Id
@@ -27,6 +27,12 @@ public class Usuario {
 
     @Column(name = "ID_PERFIL")
     private Integer idPerfil;
+    
+    @Column(name = "FLAG_BLOQUEIO")
+    private String flagBloqueio;
+    
+    @Column(name = "FLAG_EXCLUSAO")
+    private String flagExclusao;
 
     @Column(name = "DATA_CADASTRO")
     private Date dataCadastro;

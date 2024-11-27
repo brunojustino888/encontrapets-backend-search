@@ -5,19 +5,32 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Configuracoes de CORS da aplicacao.
+ * 
+ * @author Bruno Justino.
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    @Bean
+    
+	/**
+	 * Configurando o CORS para a aplicacao.
+	 * Permite CORS para todas as rotas.
+	 * 
+	 * @return WebMvcConfigurer - objeto de configuracao CORS.
+	 */
+	@Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Permite CORS para todas as rotas
-                        .allowedOrigins("http://localhost:5173") // Origem permitida
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos HTTP permitidos
-                        .allowedHeaders("*") // Permite todos os cabeçalhos
-                        .allowCredentials(true); // Permite cookies se necessário
+                registry.addMapping("/**")  
+                        .allowedOrigins("http://localhost:5173", "https://encontrapets.com.br")  
+                        .allowedMethods("GET", "POST")  
+                        .allowedHeaders("*") 
+                        .allowCredentials(true); 
             }
         };
     }
+	
 }

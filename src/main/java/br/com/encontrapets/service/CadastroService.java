@@ -70,6 +70,7 @@ public class CadastroService {
 		objectloginDto.setLogradouro(objectloginDto.getLogradouro().toUpperCase()); 
 		objectloginDto.setNome(objectloginDto.getNome().toUpperCase()); 
 		objectloginDto.setNumeroComplemento(objectloginDto.getNumeroComplemento().toUpperCase()); 
+		objectloginDto.setFlagPhoneVisivel("S");
 		Usuario uUsuario = new Usuario();
 		BeanUtils.copyProperties(objectloginDto, uUsuario);
 		uUsuario.setIdPerfil(2);
